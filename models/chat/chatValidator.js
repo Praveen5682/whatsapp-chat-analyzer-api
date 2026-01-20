@@ -27,7 +27,8 @@ const chatUploadSchemaValidation = Joi.object({
     .messages({
       "any.required": "File must be uploaded",
       "object.base": "File must be an object",
-    }),
+    })
+    .unknown(true),
 });
 
 module.exports = chatUploadSchemaValidation;

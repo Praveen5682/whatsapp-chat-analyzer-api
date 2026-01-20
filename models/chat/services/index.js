@@ -32,7 +32,8 @@ module.exports.uploadChat = async (file) => {
 
       if (msgMatch) {
         const [, dateStr, user] = msgMatch;
-        const dateObj = new Date(dateStr);
+        const [day, month, year] = dateStr.split("/").map(Number);
+        const dateObj = new Date(year, month - 1, day); // month is 0-indexed
         const dateKey = dateObj.toDateString();
 
         if (last7Days.includes(dateKey)) {
@@ -46,7 +47,8 @@ module.exports.uploadChat = async (file) => {
 
       if (joinMatch) {
         const [, dateStr, user] = joinMatch;
-        const dateObj = new Date(dateStr);
+        const [day, month, year] = dateStr.split("/").map(Number);
+        const dateObj = new Date(year, month - 1, day); // month is 0-indexed
         const dateKey = dateObj.toDateString();
 
         if (last7Days.includes(dateKey)) {

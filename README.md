@@ -97,6 +97,87 @@ API/
 ├── README.md
 └── server.js
 
+Postman Collection
+
+You can use the following Postman collection to test the backend APIs of the WhatsApp Chat Analyzer. Import this JSON into Postman to quickly access the endpoints.
+
+Collection JSON:
+
+{
+"info": {
+"\_postman_id": "f39cf0b6-7c93-4f92-8dcf-0ef3311a7946",
+"name": "Chat",
+"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+"\_exporter_id": "38914785"
+},
+"item": [
+{
+"name": "Chat Upload",
+"request": {
+"method": "POST",
+"header": [],
+"body": {
+"mode": "formdata",
+"formdata": [
+{
+"key": "file",
+"type": "file",
+"uuid": "ce738072-4255-4df9-a37a-589a51ebdd9e",
+"src": "/C:/Users/prave/Downloads/chat.txt"
+}
+]
+},
+"url": {
+"raw": "{{env}}/chat/upload",
+"host": [
+"{{env}}"
+],
+"path": [
+"chat",
+"upload"
+]
+}
+},
+"response": []
+},
+{
+"name": "Get chats Data",
+"request": {
+"method": "GET",
+"header": [],
+"url": {
+"raw": "{{env}}/chat/chats",
+"host": [
+"{{env}}"
+],
+"path": [
+"chat",
+"chats"
+]
+}
+},
+"response": []
+}
+]
+}
+
+Usage Instructions:
+
+Open Postman.
+
+Click Import → Raw Text and paste the JSON above.
+
+Set an environment variable env with your backend URL, for example:
+
+env = http://localhost:8000/api/v1
+
+for upload /chat/upload
+for get /chat/chats
+
+Use the Chat Upload request to upload .txt WhatsApp chat files.
+
+Use the Get chats Data request to fetch parsed data from MongoDB.
+
 Author
 
 Praveen Kumar M

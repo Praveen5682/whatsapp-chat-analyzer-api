@@ -4,5 +4,6 @@ const controller = require("../controllers/index");
 const upload = require("../../../config/multerConfig"); // import the config
 
 router.post("/upload", upload.single("file"), controller.uploadChat);
+router.get("/chats", controller.getChatData);
 
 module.exports = router;

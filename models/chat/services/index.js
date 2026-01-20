@@ -89,3 +89,23 @@ module.exports.uploadChat = async (file) => {
     return { error: error.message };
   }
 };
+
+module.exports.getChatData = async () => {
+  try {
+    const chats = await Chat.find().sort({ uploadedAt: -1 });
+
+    if (!chats || chats.length === 0) {
+      return {
+        message: "No chat data available",
+        data: [],
+      };
+    }
+
+    return {
+      message: "Chat data fetched successfully",
+      data: chats,
+    };
+  } catch (error) {
+    return { error: error.message };
+  }
+};
